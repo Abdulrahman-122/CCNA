@@ -66,19 +66,30 @@ let's make some vlans config;
 ---------------
    <img width="877" height="459" alt="image" src="https://github.com/user-attachments/assets/e4bf1749-d97a-4e1c-8869-27229057c5b9" />
        -now if ping the pc1 on sales depart -> it will send the traffic to all pcs connected to that vlan
+
 some-questions;
+
 <img width="882" height="462" alt="image" src="https://github.com/user-attachments/assets/8435c20e-07bd-4769-a743-1b443aae6642" />
+
 there are ; 6 vlans
+
 <img width="866" height="410" alt="image" src="https://github.com/user-attachments/assets/816663db-80c8-418f-b206-fc514708a3ce" />
 
 <img width="937" height="471" alt="image" src="https://github.com/user-attachments/assets/b398ee6b-643a-4182-b81c-e42145fb41f2" />
+
 there are 5 broadcast domains
+
 <img width="872" height="307" alt="image" src="https://github.com/user-attachments/assets/59d02901-68d1-488b-9645-332cac084b39" />
+
 the switch wii create the vlan
+
 <img width="856" height="460" alt="image" src="https://github.com/user-attachments/assets/eb0475cb-2eb9-4052-806f-f92d16d3b242" />
+
 broadcast message -> is to send a message to all the devices across the whole network
 so here; switch,Router,second pc in HR
+
 <img width="909" height="293" alt="image" src="https://github.com/user-attachments/assets/7bd6c65f-7f19-4add-a801-1b141ca89db0" />
+
 8 -> default vlans,oldones(4 vlans from 1002;1005),3 newones
 
 now; you need to solve this lab ; https://youtu.be/-tq7f3xtyLQ?si=lDnldkFqB4T7WYvl
