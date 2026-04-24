@@ -93,15 +93,15 @@ Trunk configuration;
       - <img width="898" height="441" alt="image" src="https://github.com/user-attachments/assets/91993d31-aaa3-4106-af52-ee78b94f0fb6" />
           -then here he added vlan 20 to the trunk port.
           - but you will see 20 not in management domain as it's not created yet as vlan on the switch .
-          - <img width="909" height="449" alt="image" src="https://github.com/user-attachments/assets/4a45d23f-beda-4d45-8d0e-088ce80f936a" />
+  - <img width="909" height="449" alt="image" src="https://github.com/user-attachments/assets/4a45d23f-beda-4d45-8d0e-088ce80f936a" />
               -while here we removed vlan 20 as its not vlan yet.
 
-        -<img width="925" height="449" alt="image" src="https://github.com/user-attachments/assets/928f86ee-4903-4bed-832b-0ed62309788b" />
+-<img width="925" height="449" alt="image" src="https://github.com/user-attachments/assets/928f86ee-4903-4bed-832b-0ed62309788b" />
             -then here we allowed all the vlans on the system to be act as trunk ports.
         - then here we except from the trunk mode some of the  vlan numbers like;1-5,10
-          - <img width="908" height="428" alt="image" src="https://github.com/user-attachments/assets/69199b2c-48b0-41fc-900d-e0171608b725" />
+- <img width="908" height="428" alt="image" src="https://github.com/user-attachments/assets/69199b2c-48b0-41fc-900d-e0171608b725" />
         -then here we removed all the vlans from trunk port
-          <img width="907" height="446" alt="image" src="https://github.com/user-attachments/assets/12fc3bca-a136-4c5f-bf8f-6aec143d78d4" />
+<img width="907" height="446" alt="image" src="https://github.com/user-attachments/assets/12fc3bca-a136-4c5f-bf8f-6aec143d78d4" />
 
 --- 
 now let's do some  operations;
