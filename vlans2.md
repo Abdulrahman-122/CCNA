@@ -24,9 +24,9 @@ types of Trunk protocols;
       - Tag protocol identifier(TPID)
       - Tag control information(TCI)
         - contain 3 fields.
-       
+- <img width="942" height="300" alt="image" src="https://github.com/user-attachments/assets/fd324f95-a8f1-474c-9374-ab5f8355d88a" />
       - structure of 802.1Q protocol;
-        - <img width="942" height="300" alt="image" src="https://github.com/user-attachments/assets/fd324f95-a8f1-474c-9374-ab5f8355d88a" />
+  
         - it contains ->
           - TPID -> length of it is 16 bits(2bytes)
             - it's value 0x800 -> indicate that the tag is 802.1Q
