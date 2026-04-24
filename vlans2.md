@@ -77,7 +77,68 @@ Trunk configuration;
   + define the interface as trunk port mode .
  <img width="988" height="255" alt="image" src="https://github.com/user-attachments/assets/9fdc1b78-6605-4bf0-a4a6-0fd7e8555b09" />
 2.<img width="589" height="486" alt="image" src="https://github.com/user-attachments/assets/db4d8a63-b1de-4c89-b958-36c297c8b53e" />
-  - explain this image ....
-        
-        
-        
+  - here we got the mode that we created 802.1Q + it's on
+  - you have also  ranges of vlans ;1-1094 that are allowed
+  - while the active vlans are 1(native vlan),10,30(these two are created)
+  - then below;
+    - 1 is the default vlan
+    - 10,30 are created on the switch
+    - 1002->1005 -> these are the default that came with the switch
+  3.<img width="934" height="320" alt="image" src="https://github.com/user-attachments/assets/d8473c37-82f6-4546-9ffd-c258f6eafd8b" />
+      - then here ; go into the interface to start add or do operation on the trunk port.
+      - he want to choose specific operation to made over the vlan.
+      - here he allowed vlan 10,30 on the trunk mode -> below you will see the allowed vlans on trunk are 10,30.
+      - <img width="898" height="441" alt="image" src="https://github.com/user-attachments/assets/91993d31-aaa3-4106-af52-ee78b94f0fb6" />
+          -then here he added vlan 20 to the trunk port.
+          - but you will see 20 not in management domain as it's not created yet as vlan on the switch .
+          - <img width="909" height="449" alt="image" src="https://github.com/user-attachments/assets/4a45d23f-beda-4d45-8d0e-088ce80f936a" />
+              -while here we removed vlan 20 as its not vlan yet.
+
+        -<img width="925" height="449" alt="image" src="https://github.com/user-attachments/assets/928f86ee-4903-4bed-832b-0ed62309788b" />
+            -then here we allowed all the vlans on the system to be act as trunk ports.
+        - then here we except from the trunk mode some of the  vlan numbers like;1-5,10
+          - <img width="908" height="428" alt="image" src="https://github.com/user-attachments/assets/69199b2c-48b0-41fc-900d-e0171608b725" />
+        -then here we removed all the vlans from trunk port
+          <img width="907" height="446" alt="image" src="https://github.com/user-attachments/assets/12fc3bca-a136-4c5f-bf8f-6aec143d78d4" />
+
+--- 
+now let's do some  operations;
+      - you need to move native vlan frm vlan1 to any other vlan for security purposes.
+      like this example;
+                                   <img width="887" height="434" alt="image" src="https://github.com/user-attachments/assets/1b026b0b-6d8b-44d0-be62-aa5230056a03" />
+
+  - here you will see the vlans but if you want to see the vlans that on trunk port do show interfaces trunk.
+  - <img width="985" height="360" alt="image" src="https://github.com/user-attachments/assets/6b7b5537-f120-4fff-97b8-0fc579f129dc" />
+
+
+-now we got here;
+  <img width="665" height="486" alt="image" src="https://github.com/user-attachments/assets/aad8214d-c67b-459b-ace7-778257f17b2f" />
+
+  -he made interface
+  then he made the encapsulation
+  then switch to the trunk port
+  then allow ports 10,20,30
+  then change native vlan to 1001
+  then do show interfaces  trunk
+  
+-----
+Roas(router on a stick)
+  - it's a way used to put just one interface between router,switch=>then divide that interfaces into sub interfaces like  the in  the image (after creating the vlan trunk,create vlans for the process of transformation )
+  - <img width="967" height="495" alt="image" src="https://github.com/user-attachments/assets/8a8170dc-af7b-4033-8799-5c8b461433d4" />
+
+  -now if we want to move on and create sub interfaces and create on one of them the trunk then assign an ip address for each one after determine the encapsulation on it  like this ;
+<img width="957" height="237" alt="image" src="https://github.com/user-attachments/assets/1662767a-327b-44ff-ba1a-ce46148cf43b" />
+
+then make sure the  ip interfaces;
+<img width="988" height="395" alt="image" src="https://github.com/user-attachments/assets/808c37ef-315a-4e7d-9db7-1d480fd8198a" />
+
+then ip routes;
+<img width="842" height="493" alt="image" src="https://github.com/user-attachments/assets/d9eab26e-12da-44b0-8f24-86d30ae78782" />
+then 
+to sum up
+  -Roas -> use single interface between router,switch 
+  - switch configured as regular trunk
+  - router configured as subinterfaces(configure vlan,ip address on each interface)
+  - once the frame recieved to the router -> router will tag that frame with vlan tag .
+  - <img width="978" height="491" alt="image" src="https://github.com/user-attachments/assets/b61cc2f0-67e4-4992-8d3e-8dee1d40b522" />
+
