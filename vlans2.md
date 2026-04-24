@@ -144,3 +144,21 @@ to sum up
   - once the frame recieved to the router -> router will tag that frame with vlan tag .
   - <img width="978" height="491" alt="image" src="https://github.com/user-attachments/assets/b61cc2f0-67e4-4992-8d3e-8dee1d40b522" />
 
+questions on this stuff;
+  -<img width="860" height="386" alt="image" src="https://github.com/user-attachments/assets/f6abfb10-dde6-4820-81d0-7a9c7b557136" />
+      ans;d (he mentioned  in the q-> untagged frames.
+
+ <img width="894" height="422" alt="image" src="https://github.com/user-attachments/assets/2400f8b0-3569-4ba7-bae6-1e4a73c1624d" />
+    ans;b 
+ <img width="945" height="388" alt="image" src="https://github.com/user-attachments/assets/4e99f28b-47d3-4000-8d4e-abe441ee01e3" />
+    - ans; c
+<img width="850" height="383" alt="image" src="https://github.com/user-attachments/assets/8e9db98e-17ea-47b3-9572-f24630f9d792" />
+
+ans; b (Vid is responsible for number of vlan )
+
+<img width="961" height="460" alt="image" src="https://github.com/user-attachments/assets/a0298838-3f16-458b-aeb7-5ae97a6e1a04" />
+
+- ans;a (as we said if vlan isn't on the switch it will not added to the management domain secion of vlans)
+
+
+
