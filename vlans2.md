@@ -48,6 +48,8 @@ types of Trunk protocols;
                       -range of vlan 1-4094 divided into
                        -Normal vlan(1-1005) supported
                        - Extended vlan(1006-4094) supported also
+  here are some drawing i made to clarify the image into my head;
+  https://excalidraw.com/#room=df31917b64385c9c344a,RWYdFpWMFhXeE1puvnht5w
 -----
 now if we want to send a frame from vlan10(Engineering)to vlan10(engineering) into another floor 
 
