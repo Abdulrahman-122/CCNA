@@ -1,0 +1,122 @@
+Explaination of the video;
+- to configure  Vlan on a router;
+	- encapsulation dot1q vlan-id native
+		- ![[Pasted image 20260428184039.png]]
+	- or
+	- configure native vlan on the router physical interface
+		- ![[Pasted image 20260428185921.png]]
+		- here we removed the subinterfaces 
+		- and inter to the g0/0 interface => put the ip address on that interface then show the interfaces on the router will show that;
+			- ![[Pasted image 20260428190115.png]]
+				- you have interface on G0/0 with an ip address for the native vlan 
+				- you have other interfaces with dot1q encapsulation for other vlans
+				- 
+- now let's analyse the traffic that going from sw2 to R1 on wireshark;
+	- ![[Pasted image 20260428184154.png]]
+		- ![[Pasted image 20260428184338.png]]
+		- you need to know ;
+			- that type of the vlan is 802.1Q and it's hexadeciaml value 0x8100 -
+			- note; the type field is after source field of the analysis
+			- and the type filed is part of TPID as we discuss before (0x8100) is the value that stored inside TPID.
+			- ![[Pasted image 20260428185053.png]]
+		- after the TPID you have TCI;
+			- PCP -> periority code point -> default here is 0 (3bits)
+			- DEI -> drop eligible indicator (1 bit )  it's value is 0
+			- VID ->vlan identifier -> (12 bits) type of vlan is 20
+		- so all of these called: ICMP
+	- also you have the source ip,destination ip
+- ---
+- now the message will return from R-> Sw2
+	- this is the output ;
+		- ![[Pasted image 20260428185741.png]]
+		- you have the src ip, destination ip 
+---
+What is the Multilayer 3 switches?
+- ![[Pasted image 20260428190332.png]]
+- it's a multilayer switch used for both -> switching,routing
+- you can configure ip address on it's interfaces like router
+- you can use virtual vlan on it's interfaces +assign ip addresses to it.
+- you can uses it for vlan routing
+- 
+----
+Multilayer 3 switch?
+- can be used as 
+	- switch virtual interfaces(SVI) =>is to assign a virtual addresses to it's interfaces.
+	- then you can configure each pc to use SVI as their gateway address.
+	- so; to send the traffic to different pcs -> pc send traffic to the switch(Multilayer switch)=> then it will forward it to the the subnets you need to send to.
+- ex;
+	- ![[Pasted image 20260428191357.png]]
+	- here if we need to send the traffic from pc in vlan20 through multilayer switch -> multilayer switch will tagged it to the vlan of destination address 
+	- then sw2(layer2 switch) will receive that traffic and forward it to the destination pc .1 in vlan 10 at the above floor .
+	- ex;
+		- what if we need to send traffic to the cloud or internet so we will configure the stick between sw2,R1 by assigning an IP address on it
+		- then and give an ip address for the sw2,and one for R1
+		- now we will use default routing to send the traffic from sw2 to the internet
+		- here are the commands to configure it on the router , switch;
+			- ![[Pasted image 20260428191920.png]]
+			- he removed subinterfaces on g0/0.10,g0/0.20,g0/0.30
+			- then return the g0/0 to it's default way .
+			- then he showed the ip of the interfaces on  the router
+			- ![[Pasted image 20260428192042.png]]
+			- then he assign an ip address for that interface 
+				- interface name
+				- then ; ip address  network+host portion then subnet mask of it .
+				- then ; do show ip interfaces brief.
+			- ![[Pasted image 20260428192314.png]]
+				- then do the same on the switch;
+					- make the default interface to be g0/1
+					- then activate the ip routing on the switch
+						- then go to interface g0/1
+						- then; no switchport -> make that interface as router port (note that)
+						- then assign to it an ip address with a subnet mask
+						- then do show ip interface brief
+					- then you will see the ip is on the switch .
+			- ![[Pasted image 20260428192647.png]]
+			- now we need to allow for sw2 to forward the traffic to the internet(cloud)
+				- exit 
+				- then assign default route 0.0.0.0 0.0.0.0 next hub(R2 to be accessed by the sw2)
+				- then do show ip route 
+					- will show that you routed to the next hub(R2) with the ip address 0.0.0.0 and his ip addreess
+			- or you can make this ;
+				- ![[Pasted image 20260428193004.png]]
+			- this shows you that g0/1 has been routed.
+		- Now how to make an SVI routing on the switch;
+			- switch virtual interface;
+				- ![[Pasted image 20260428193208.png]]
+				- interface vlan10 -> this get you into vlan10
+				- ip address address subnet -> assign ip address to that interface 
+				- no shutdown as the SVI  => by default they are shutdown so you need to make them noshutdown.
+				- ![[Pasted image 20260428193401.png]]
+				- here we entered into an interface that doesn't exist -> then assign to it an address
+				- when we write do show ip interface brief
+					- we will see the vlan is on the switch but it's status are down-> down.
+				- 3 rules to be taken when build an SVI;
+					- vlan must be on the switch
+					- vlan must have in access port if it was in the vlan that connected to the switch or has a trunk port at case the vlan isn't connected to the switch. like vlan 30 on the network topology that we took before.
+					- vlan ->not shutdown 
+					- svI -> not shutdown.
+				- now after we created the svi on the vlans  hit do show ip route;
+				- ![[Pasted image 20260428194525.png]]
+			- after doing svi 
+				- you can send traffic to the internet;
+					- ![[Pasted image 20260428194609.png]]
+				- or you can send traffic to any vlan ;
+					- ![[Pasted image 20260428194633.png]]
+- ---
+- Questions;
+	- Q1;![[Pasted image 20260428201024.png]]
+	- answer ; b,c
+		- b -> to configure the native on a subinterface
+		- c -> configure native vlan on a physical interface so you don't need encapsulation.
+	-  
+	-  Q2;
+		- ![[Pasted image 20260428201421.png]]
+		- a,c -> as the the rules was![[Pasted image 20260428201638.png]]
+		- so the svi mayby shutdown
+	- Q3
+		- ![[Pasted image 20260428201742.png]]
+		- a -> as it configure the switch interface as routed port
+	- Q4;
+		- ![[Pasted image 20260428202050.png]]
+		- answer; b
+		
